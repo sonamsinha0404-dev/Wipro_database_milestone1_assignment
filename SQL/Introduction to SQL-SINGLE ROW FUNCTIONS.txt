@@ -1,0 +1,87 @@
+Introduction to SQL - SINGLE ROW FUNCTIONS
+
+1). ans-- SELECT SYSDATE AS "Date"
+FROM DUAL;
+
+2). ans-- SELECT EMPLOYEE_ID,
+       LAST_NAME,
+       SALARY,
+       ROUND(SALARY * 1.155) AS "New Salary"
+FROM EMPLOYEES;
+
+3). ans--SELECT EMPLOYEE_ID,
+       LAST_NAME,
+       SALARY,
+       ROUND(SALARY * 1.155) AS "New Salary",
+       ROUND(SALARY * 1.155) - SALARY AS "Increase"
+FROM EMPLOYEES;
+
+4). ans-- SELECT INITCAP(ENAME) AS "Employee Name",
+       LENGTH(ENAME) AS "Name Length"
+FROM EMP
+WHERE ENAME LIKE 'J%'
+   OR ENAME LIKE 'A%'
+   OR ENAME LIKE 'M%'
+ORDER BY ENAME;
+
+5). ans -- SELECT INITCAP(ENAME) AS "Employee Name",
+       LENGTH(ENAME) AS "Name Length"
+FROM EMP
+WHERE ENAME LIKE UPPER('&LETTER') || '%'
+ORDER BY ENAME;
+
+6). ans-- SELECT ENAME,
+       CEIL(MONTHS_BETWEEN(SYSDATE, HIREDATE)) AS MONTHS_WORKED
+FROM EMP
+ORDER BY MONTHS_WORKED;
+
+7). ans-- SELECT ENAME || ' earns ' || SAL ||
+       ' monthly but wants ' || (SAL * 3) || '.' AS "Dream Salaries"
+FROM EMP;
+
+8). ans-- SELECT ENAME,
+       LPAD(SAL, 15, '$') AS "SALARY"
+FROM EMP;
+
+9). ans--SELECT ENAME,
+       HIREDATE,
+       TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE,6),'MONDAY'),
+       'Day, "the" DDSP "of" Month, YYYY') AS REVIEW
+FROM EMP;
+
+10). ans-- SELECT ENAME,
+       HIREDATE,
+       TO_CHAR(HIREDATE,'Day') AS DAY
+FROM EMP
+ORDER BY TO_CHAR(HIREDATE,'D');
+
+11). ans-- SELECT ENAME,
+       NVL(TO_CHAR(COMM),'No Commission') AS COMM
+FROM EMP;
+
+12). ans-- SELECT SUBSTR(ENAME,1,8) || ' ' ||
+       RPAD('*', TRUNC(SAL/1000), '*') AS EMPLOYEES_AND_THEIR_SALARIES
+FROM EMP
+ORDER BY SAL DESC;
+
+13). ans-- SELECT ENAME,
+       JOB,
+       DECODE(JOB,
+              'PRESIDENT','A',
+              'MANAGER','B',
+              'SALESMAN','C',
+              'CLERK','D',
+              'ANALYST','E') AS GRADE
+FROM EMP;
+
+14). ans-- SELECT ENAME,
+       JOB,
+       CASE JOB
+            WHEN 'PRESIDENT' THEN 'A'
+            WHEN 'MANAGER'   THEN 'B'
+            WHEN 'SALESMAN'  THEN 'C'
+            WHEN 'CLERK'     THEN 'D'
+            WHEN 'ANALYST'   THEN 'E'
+            ELSE 'N/A'
+       END AS GRADE
+FROM EMP;

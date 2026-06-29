@@ -1,0 +1,18 @@
+Introduction to SQL - RETRIEVING DATA USING SQL SELECT STATEMENT
+
+1). Determine the structure of DEPT Table and its contents.
+ans- (i) to display structure of dept table
+command:  DESC DEPT;
+     (ii) to display content.
+command:  SELECT * FROM DEPT;
+
+2). Determine the Structure EMP table and its contents.
+command: DESC EMP;
+Command: SELECT * FROM EMP
+
+3). Display the Ename and Deptno from Emp table whose Empno is 7788.
+
+command: SELECT ENAME, DEPTNO
+         from EMP
+         where Empno = 7788;
+
