@@ -1,0 +1,41 @@
+Introduction to RDBMS -Normalization
+
+II-Normalization:
+
+ans 1- the table is in 2nd normal form as there is only one primary key and hence no partial dependency
+ 
+convert to 3rd nf: (i) make employee table consisting of EmpNo, Ename, Sal and deptno  (PK: EmpNO)
+
+(ii) Make department table consisting of DeptNo, Dname
+and LOC (PK: DeptNo)
+
+ans 2- the table is in the 1NF. This can be further normalized into 2nd NF and 3rd NF
+2NF: student table -- rollNo, Name, Age (PK: RollNo)
+     student_exam table - rollNo, exam, marks, grade
+     (PK: rollNo, exam).
+
+3NF: Student-rollNO, name, age
+     student_exam- rollno, exam, marks
+     grade - Marks_range, grade
+
+ans 3: The table is in 1NF, but it has a partial dependency, so it is not in 2NF.
+
+Functional Dependencies
+(EMPNO, PROJECT_NO) → NO_OF_DAYS
+PROJECT_NO → CUSTOMERNAME
+
+CUSTOMERNAME depends only on PROJECT_NO, which is part of the composite primary key, not on the entire key.
+
+This causes:
+
+->Data redundancy (customer name is repeated for every employee working on the same project).
+
+->Update anomaly (changing a customer's name requires updating multiple rows).
+
+->Insertion anomaly (cannot add a new project and customer until an employee is assigned).
+
+->Deletion anomaly (deleting the last employee assigned to a project also removes the customer information).
+
+Normalize the table into Second Normal Form (2NF) by decomposing it into: Employee_Project-EMPNO, PROJECT_NO, NO_OF_DAYS.
+project - PROJECT_NO, CUSTOMERNAME
+

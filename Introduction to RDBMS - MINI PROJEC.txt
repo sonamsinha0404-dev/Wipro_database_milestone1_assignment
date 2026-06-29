@@ -1,0 +1,51 @@
+Introduction to RDBMS - MINI PROJECT
+
+I-mini project:
+
+-Normalization
+1). Normalize the following table into 1 normal form:
+
+ans: Member_id First_Name Last_Name
+      101      Jayson     Mark
+      102      Ram        Ganesh
+      103      Raj        Kishore
+
+
+     Member_id    Hobbies
+      101         Cricket
+      101         Swimming
+      101         Football
+      102         Swimming
+      102         Running
+      102         Music
+      103         Dancing
+      103         Singing
+      103         Running
+
+
+2). Normalize the following table into 2nd normal form:
+
+ans:  Empno       Dept
+       101         TT
+       101         BU
+       102         TT
+
+     
+      Empno    Training    Training_Date
+       101    Oracle Sql   12-Aug-2015
+       101    Java         21-AUg-2012 
+       102    Oracle Sql   18-Sep-2014
+
+
+3). Normalize the following into 3rd normal form:
+
+ans:  Member_id   First_name  Last_name  Sports
+       101         Rajesh      Chand     Cricket
+       102         Jayesh      Raj       Hockey
+       103         Mark        Dorson    Football
+
+  
+      Sports     Fees
+      Cricket    100
+      Hockey     80
+      Football   90
